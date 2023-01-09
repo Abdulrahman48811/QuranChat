@@ -72,7 +72,7 @@ export default function Signup({ navigation }) {
             fontWeight: "bold",
             marginBottom: 35,
             padding: 15,
-            left: 100,
+            textAlign: 'center',
           }}
         >
           <Text style={{ color: "#4C4646" }}>Welcome To </Text>Quran Chat
@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
         color: "#da9100",
         alignSelf: "center",
         paddingBottom: 24,
+        paddingTop: 40,
     },
     input: {
         backgroundColor: "#f6f7fb",
@@ -105,16 +106,16 @@ const styles = StyleSheet.create({
         padding: 12,
     },
     backImage: {
-        width: 220,
-        height: 220,
+        width: 200,
+        height: 200,
         position: "absolute",
         alignSelf: "center",
-        top: 21,
+        top: 41,
         resizeMode: "cover",
     },
     whiteSheet: {
         width: "100%",
-        height: "75%",
+        height: "72%",
         position: "absolute",
         bottom: 0,
         backgroundColor: "#fff",
