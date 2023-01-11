@@ -8,11 +8,16 @@ import {
     TouchableOpacity,
   } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
+import { signOut } from "firebase/auth";
 // import { FontAwesome } from "expo-vector-icons";
-import { Entypo } from "@expo/vector-icons";
-
+import { AntDesign, Entypo } from "@expo/vector-icons";
+import { auth } from "../config/firebase";
 
 const topLogo = require("../assets/logo.png");
+
+const onSignOut = () => {
+    signOut(auth).catch((error) => console.log(error));
+  };
 
 const Home = () => {
 
@@ -20,31 +25,50 @@ const Home = () => {
 
     useEffect(() => {
       navigation.setOptions({
-        headerLeft: () => (
-            <Text>Hi</Text>
+        headerRight: () => (
+            // <Text>Hi</Text>
+            <TouchableOpacity
+          style={{
+            marginRight: 10,
+          }}
+          onPress={onSignOut}
+        >
+          <AntDesign
+            name="logout"
+            size={24}
+            color={"#818589"}
+            style={{ marginRight: 10 }}
+          />
+        </TouchableOpacity>
             // <FontAwesome name="search" size={24} color="gray" style={{marginLeft: 15}}/>
         ),
         headerStyle: {
             backgroundColor: '#F5F3F3'
           },
-        headerRight: () => (
+        headerLeft: () => (
             <Image 
             source={topLogo}
             style={{
                 width: 40,
                 height: 40,
-                marginRight: 15,
+                marginLeft: 15,
             }}/>
 
             ),
         });
     }, [navigation]);
     return (
-        <View style={styles.container}>
+        <View style={styles.chatview}>
+            <View style={styles.container}>
+
+                <Text>HI</Text>
+                
+            </View>
+            <Text style={{top: -65, flex:5, fontSize: 15, color:"#4C4646", }}>Welcome To The Main Chat Room!</Text>
             <TouchableOpacity
                 onPress={() => navigation.navigate("Chat")}
                 style={styles.chatButton}
-            >
+                >
                 <Entypo name="chat" size={24} color="blue"/>
             </TouchableOpacity>
         </View>
@@ -54,10 +78,17 @@ const Home = () => {
 export default Home;
 
 const styles = StyleSheet.create({
-    container: {
+    chatview: {
         flex: 1,
         justifyContent: "flex-end",
         alignItems: "flex-end",
+        backgroundColor: "white",
+        flexDirection: 'row',
+    },
+    container: {
+        flex: 1,
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
         backgroundColor: "white",
     },
     chatButton: {
