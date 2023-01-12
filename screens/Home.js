@@ -13,10 +13,9 @@ import { FontAwesome } from "@expo/vector-icons";
 import { AntDesign, Entypo } from "@expo/vector-icons";
 import { auth } from "../config/firebase";
 import Ionicons from "@expo/vector-icons/Ionicons";
-
 const topLogo = require("../assets/logo.png");
 const fatiha = require("../assets/quranimg.jpeg");
-
+const background = require("../assets/background.png");
 const onSignOut = () => {
   signOut(auth).catch((error) => console.log(error));
 };
@@ -60,6 +59,86 @@ const Home = () => {
   }, [navigation]);
   return (
     <View style={styles.chatview}>
+      <View
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          border: "solid",
+          borderRadius: 7,
+          borderWidth: 1,
+          marginTop: 15,
+          marginRight: 20,
+          marginLeft: 20,
+          borderColor: "lightgray",
+          alignItems: "flex-start",
+        }}
+      >
+        <Text
+          style={{
+            marginTop: 5,
+            marginLeft: 15,
+            color: "gray",
+          }}
+        >
+          Quran Chat:
+        </Text>
+        <Entypo name="globe" size={22} color="#da9100" style={styles.icon2}>
+          <Text
+            style={{
+              color: "black",
+              fontSize: 16,
+            }}
+          >
+            {" "}
+            Daily Reminders
+          </Text>
+        </Entypo>
+        <Text
+          style={{
+            marginLeft: 15,
+            marginTop: 7,
+            marginBottom: 10,
+            marginRight: 15,
+          }}
+        >
+          Discuss important concerns with people around the world.
+        </Text>
+      </View>
+      <View
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          border: "solid",
+          borderRadius: 10,
+          //   borderWidth: 1,
+          marginTop: 15,
+          marginRight: 20,
+          marginLeft: 20,
+          alignItems: "flex-start",
+          backgroundColor: "#F4F5FA",
+        }}
+      >
+        <Image
+          source={background}
+          style={{ width: 387.5, height: 150, marginRight: 30 }}
+        ></Image>
+        <Text
+          style={{
+            marginTop: 15,
+            marginLeft: 15,
+            fontSize: 15,
+            color: "#1F75FE",
+          }}
+        >
+          Discuss Your Questions?
+        </Text>
+        <Text style={{ marginTop: 10, marginLeft: 15, marginRight: 15 }}>
+          logInWithR eadPermissio nsAsync logInWi thR ead Per mis sio nsA sync
+        </Text>
+        <TouchableOpacity style={styles.goto}>
+          <Text style={styles.gotoText}>This takes you somewhere</Text>
+        </TouchableOpacity>
+      </View>
       <View style={styles.container}>
         <Image
           source={fatiha}
@@ -79,12 +158,18 @@ const Home = () => {
         <Entypo name="chat" size={22} color="orange" style={styles.icon1}>
           <Text style={styles.text}>
             {"  "}
-            Chat Room{"                                 "}
-          </Text><Entypo
-              name="chevron-right"
-              size={22}
-              color="white"
-            ></Entypo></Entypo>
+            Chat Room
+          </Text>
+        </Entypo>
+        <Entypo
+          name="chevron-with-circle-right"
+          size={24}
+          color="white"
+          style={{
+            marginLeft: 270,
+            top: -10,
+          }}
+        ></Entypo>
       </TouchableOpacity>
     </View>
   );
@@ -104,12 +189,12 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   chatButton: {
-    paddingVertical: 12,
-    paddingHorizontal: 32,
+    // paddingVertical: 12,
+    // paddingHorizontal: 32,
     borderRadius: 15,
     backgroundColor: "lightgray",
-    marginRight: 35,
-    marginLeft: 35,
+    marginRight: 60,
+    marginLeft: 60,
     marginBottom: 50,
   },
   text: {
@@ -118,8 +203,30 @@ const styles = StyleSheet.create({
     fontFamily: "Arial",
     letterSpacing: 0.25,
     color: "white",
+    float: "right",
   },
   icon1: {
-    marginLeft: -25,
+    marginLeft: 6,
+    top: 10,
+  },
+  icon2: {
+    marginLeft: 15,
+    marginTop: 5,
+  },
+  goto: {
+    marginLeft:60,
+    marginTop: 15,
+    borderRadius: 10,
+    backgroundColor: "lightgray",
+    marginBottom: 15,
+  },
+  gotoText: {
+    fontSize: 16,
+    marginTop: 10,
+    marginBottom: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: 60,
+    marginRight: 60,
   },
 });
