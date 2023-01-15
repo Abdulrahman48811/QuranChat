@@ -16,6 +16,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 const topLogo = require("../assets/logo.png");
 const fatiha = require("../assets/quranimg.jpeg");
 const background = require("../assets/background.png");
+const bismillah = require("../assets/bismillah.jpg");
 const onSignOut = () => {
   signOut(auth).catch((error) => console.log(error));
 };
@@ -59,6 +60,22 @@ const Home = () => {
   }, [navigation]);
   return (
     <View style={styles.chatview}>
+      <View
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Image
+          source={bismillah}
+          style={{
+            width: 400,
+            height: 100,
+            marginTop: -5,
+            marginBottom: -5,
+          }}
+        />
+      </View>
       <View
         style={{
           alignItems: "center",
@@ -133,14 +150,17 @@ const Home = () => {
           Discuss Your Questions?
         </Text>
         <Text style={{ marginTop: 10, marginLeft: 15, marginRight: 15 }}>
-          logInWithR eadPermissio nsAsync logInWi thR ead Per mis sio nsA sync
+          Looking for a group of people to discuss your thoughts & questions
+          with? Quran Chat allows you to learn something new everyday.
         </Text>
         <TouchableOpacity style={styles.goto}>
-          <Text style={styles.gotoText}>This takes you somewhere</Text>
+          <Text style={styles.gotoText}>
+            Rules & Regulations{/* add fatiha beginning */}
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.container}>
-        <Image
+        {/* <Image
           source={fatiha}
           style={{
             display: "flex",
@@ -149,7 +169,7 @@ const Home = () => {
             width: 280,
             height: 170,
           }}
-        />
+        /> */}
       </View>
       <TouchableOpacity
         onPress={() => navigation.navigate("Chat")}
@@ -195,7 +215,7 @@ const styles = StyleSheet.create({
     backgroundColor: "lightgray",
     marginRight: 60,
     marginLeft: 60,
-    marginBottom: 50,
+    marginBottom: 25,
   },
   text: {
     fontSize: 15,
@@ -214,14 +234,16 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   goto: {
-    marginLeft:60,
+    marginLeft: 70,
     marginTop: 15,
     borderRadius: 10,
     backgroundColor: "lightgray",
     marginBottom: 15,
   },
   gotoText: {
-    fontSize: 16,
+    color: "#000000",
+    fontSize: 15,
+    fontWeight: "bold",
     marginTop: 10,
     marginBottom: 10,
     alignItems: "center",
