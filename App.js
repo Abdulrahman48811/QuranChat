@@ -1,16 +1,24 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { View, ActivityIndicator } from "react-native";
 import { onAuthStateChanged } from 'firebase/auth';
 import Chat from "./screens/Chat";
 import Login from './screens/Login';
 import Home from "./screens/Home";
+import Settings from './screens/Settings';
 import Signup from './screens/Signup';
-import { auth } from "./config/firebase";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 
+import { auth } from "./config/firebase";
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Stack = createStackNavigator();
 const AuthenticatedUserContext = createContext({});
+const Tab = createBottomTabNavigator();
+const homeName = "Home";
+const settingsName = 'Settings';
+
 
 const AuthenticatedUserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -23,19 +31,49 @@ const AuthenticatedUserProvider = ({ children }) => {
 
 function ChatStack() {
   return (
-    <Stack.Navigator defaultScreenOptions={Home} >
-      <Stack.Screen name='Quran Chat' component={Home}/>
+    <NavigationContainer>
+      <Tab.Navigator
+      initialRouteName={homeName}
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({focused, color, size}) => {
+          let iconName;
+          let rn = route.name;
+
+          if(rn === homeName) {
+            iconName = focused ? 'home' : 'home-outline'
+          } else if (rn === settingsName) {
+            iconName = focused ? 'settings' : 'settings-outline'
+          }
+
+          return <Ionicons name={iconName} size={size} color={color} />
+        },
+      })}
+
+      tabBarOptions={{
+        activeTintColor: 'gold',
+        inactiveTintColor: 'gray',
+        labelStyle: { paddingBottom: 10, fontSize: 10},
+        style: {padding: 10, height: 70}
+      }}
+      >
+    {/* <Stack.Navigator defaultScreenOptions={Home} > */}
+      <Tab.Screen name={homeName} component={Home}/>
+      <Tab.Screen name={settingsName} component={Settings} />
       <Stack.Screen name='Chat' component={Chat}/>
-    </Stack.Navigator>
+      </Tab.Navigator>
+    {/* /* </Stack.Navigator> */ }
+    </NavigationContainer>
   )
 }
 
 function AuthStack () {
   return (
+    <NavigationContainer>
   <Stack.Navigator defaultScreenOptions={Login} screenOptions={{ headerShown: false }}>
   <Stack.Screen name='Login' component={Login}/>
   <Stack.Screen name='Signup' component={Signup}/>
 </Stack.Navigator>
+</NavigationContainer>
   )
 }
 
@@ -58,9 +96,9 @@ function RootNavigator() {
     )
   }
   return (
-    <NavigationContainer>
-      { user ? <ChatStack /> : <AuthStack />}
-    </NavigationContainer>
+    // <NavigationContainer>
+       user ? <ChatStack /> : <AuthStack />
+    // </NavigationContainer>
   )
 }
 
