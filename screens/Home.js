@@ -224,7 +224,6 @@ const Home = () => {
           </Text>
           <TouchableOpacity
           onPress={() => navigation.navigate("Chat")}
-          style={styles.chatButton}
             style={{
               marginLeft: 70,
               marginRight: 30,
@@ -296,7 +295,6 @@ const Home = () => {
           </Text>
           <TouchableOpacity
           onPress={() => navigation.navigate("Settings")}
-          style={styles.chatButton}
             style={{
               marginLeft: 80,
               marginRight: 30,
