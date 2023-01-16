@@ -132,7 +132,7 @@ const Home = () => {
           marginRight: 20,
           marginLeft: 20,
           alignItems: "flex-start",
-          backgroundColor: "#F4F5FA",
+          backgroundColor: "#F5F3F3",
         }}
       >
         <Image
@@ -159,8 +159,30 @@ const Home = () => {
           </Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.container}>
-        {/* <Image
+      <View style={{  justifyContent: 'space-between' }}>
+        <Text
+          style={{
+            marginLeft: 20,
+            marginTop: 15,
+            marginRight: 20,
+            fontSize: 24,
+            fontWeight: "bold",
+          }}
+        >
+          Pages
+          {"                                                   "}
+          <Ionicons
+            name="ellipsis-horizontal-outline"
+            size={24}
+            style={{
+              color: "red",
+              marginLeft: 2,
+            }}/>
+        </Text>
+      </View>
+      <View></View>
+      {/* <View style={styles.container}>
+        <Image
           source={fatiha}
           style={{
             display: "flex",
@@ -169,9 +191,9 @@ const Home = () => {
             width: 280,
             height: 170,
           }}
-        /> */}
-      </View>
-      <TouchableOpacity
+        />
+      </View> */}
+      {/* <TouchableOpacity
         onPress={() => navigation.navigate("Chat")}
         style={styles.chatButton}
       >
@@ -190,7 +212,7 @@ const Home = () => {
             top: -10,
           }}
         ></Entypo>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };
@@ -237,11 +259,11 @@ const styles = StyleSheet.create({
     marginLeft: 70,
     marginTop: 15,
     borderRadius: 10,
-    backgroundColor: "lightgray",
+    backgroundColor: "#4B4B4B",
     marginBottom: 15,
   },
   gotoText: {
-    color: "#000000",
+    color: "white",
     fontSize: 15,
     fontWeight: "bold",
     marginTop: 10,
