@@ -43,7 +43,7 @@ function ChatStack() {
               iconName = focused ? "home" : "home-outline";
             } else if (rn === chatName) {
               iconName = focused
-                ? "chatbox-ellipses-outline"
+                ? "chatbox-ellipses"
                 : "chatbox-ellipses-outline";
             } else if (rn === settingsName) {
               iconName = focused ? "settings" : "settings-outline";
