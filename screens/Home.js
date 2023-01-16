@@ -4,6 +4,7 @@ import {
   Text,
   Button,
   View,
+  ScrollView,
   Image,
   TouchableOpacity,
 } from "react-native";
@@ -41,7 +42,6 @@ const Home = () => {
             style={{ marginRight: 10 }}
           />
         </TouchableOpacity>
-        // <FontAwesome name="search" size={24} color="gray" style={{marginLeft: 15}}/>
       ),
       headerStyle: {
         backgroundColor: "#F5F3F3",
@@ -59,7 +59,7 @@ const Home = () => {
     });
   }, [navigation]);
   return (
-    <View style={styles.chatview}>
+    <ScrollView style={styles.chatview} showsVerticalScrollIndicator={false}>
       <View
         style={{
           alignItems: "center",
@@ -159,7 +159,7 @@ const Home = () => {
           </Text>
         </TouchableOpacity>
       </View>
-      <View style={{  justifyContent: 'space-between' }}>
+      <View style={{ justifyContent: "space-between" }}>
         <Text
           style={{
             marginLeft: 20,
@@ -175,12 +175,157 @@ const Home = () => {
             name="ellipsis-horizontal-outline"
             size={24}
             style={{
-              color: "red",
+              color: "#da9100",
               marginLeft: 2,
-            }}/>
+            }}
+          />
         </Text>
       </View>
-      <View></View>
+      <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+        <View
+          style={{
+            border: "solid",
+            borderRadius: 7,
+            borderWidth: 1,
+            marginTop: 15,
+            marginRight: 20,
+            marginLeft: 20,
+            marginBottom: 10,
+            borderColor: "lightgray",
+            alignItems: "flex-start",
+          }}
+        >
+          <Text
+            style={{
+              marginLeft: 20,
+              marginRight: 20,
+              marginBottom: 5,
+              marginTop: 15,
+              fontSize: 16,
+              fontWeight: "bold",
+            }}
+          >
+            Join The Chat Room!
+          </Text>
+          <Text
+            style={{
+              marginLeft: 20,
+              marginRight: 20,
+              color: "gray",
+              fontSize: 15,
+            }}
+          >
+           <Ionicons name="alert-circle-outline" color="red" size={22}/> Note:
+          </Text>
+
+          <Text style={{ marginLeft: 20, marginTop: 5, marginRight: 20 }}>
+            Please look over the Rules & Regulations {"\n"}upon entering the
+            chat room. 
+          </Text>
+          <TouchableOpacity
+          onPress={() => navigation.navigate("Chat")}
+          style={styles.chatButton}
+            style={{
+              marginLeft: 70,
+              marginRight: 30,
+              marginTop: 15,
+              borderRadius: 10,
+              backgroundColor: "#4B4B4B",
+              marginBottom: 15,
+            }}
+          >
+            <Text
+              style={{
+                color: "white",
+                fontSize: 15,
+                fontWeight: "bold",
+                marginTop: 10,
+                marginBottom: 10,
+                alignItems: "center",
+                justifyContent: "center",
+                marginLeft: 30,
+                marginRight: 20,
+              }}
+            >
+              Chat Room {"  "}
+              <Ionicons name="chevron-forward-outline" size={20}/>
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+
+
+        <View
+          style={{
+            border: "solid",
+            borderRadius: 7,
+            borderWidth: 1,
+            marginTop: 15,
+            marginRight: 20,
+            marginLeft: 20,
+            marginBottom: 10,
+            borderColor: "lightgray",
+            alignItems: "flex-start",
+          }}
+        >
+          <Text
+            style={{
+              marginLeft: 20,
+              marginRight: 20,
+              marginBottom: 5,
+              marginTop: 15,
+              fontSize: 16,
+              fontWeight: "bold",
+            }}
+          >
+            Need Some Help?
+          </Text>
+          <Text
+            style={{
+              marginLeft: 20,
+              marginRight: 20,
+              color: "gray",
+              fontSize: 15,
+            }}
+          >
+           <Ionicons name="information-circle-outline" color="red" size={22}/> Note:
+          </Text>
+
+          <Text style={{ marginLeft: 20, marginTop: 5, marginRight: 20 }}>
+            Review your privacy settings in order to{"\n"}make your desired changes, if needed.
+          </Text>
+          <TouchableOpacity
+          onPress={() => navigation.navigate("Settings")}
+          style={styles.chatButton}
+            style={{
+              marginLeft: 80,
+              marginRight: 30,
+              marginTop: 15,
+              borderRadius: 10,
+              backgroundColor: "#4B4B4B",
+              marginBottom: 15,
+            }}
+          >
+            <Text
+              style={{
+                color: "white",
+                fontSize: 15,
+                fontWeight: "bold",
+                marginTop: 10,
+                marginBottom: 10,
+                alignItems: "center",
+                justifyContent: "center",
+                marginLeft: 30,
+                marginRight: 20,
+              }}
+            >
+              Settings{"  "}
+              <Ionicons name="chevron-forward-outline" size={20}/>
+            </Text>
+          </TouchableOpacity>
+        </View>
+       
+      </ScrollView>
       {/* <View style={styles.container}>
         <Image
           source={fatiha}
@@ -213,7 +358,7 @@ const Home = () => {
           }}
         ></Entypo>
       </TouchableOpacity> */}
-    </View>
+    </ScrollView>
   );
 };
 
