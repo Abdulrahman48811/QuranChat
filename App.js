@@ -62,7 +62,7 @@ function ChatStack() {
       >
         {/* <Stack.Navigator defaultScreenOptions={Home} > */}
         <Tab.Screen name={homeName} component={Home} />
-        <Stack.Screen name="Chat" component={Chat} />
+        <Tab.Screen name="Chat" component={Chat} />
         <Tab.Screen name={settingsName} component={Settings} />
       </Tab.Navigator>
       {/* /* </Stack.Navigator> */}
