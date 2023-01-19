@@ -17,6 +17,7 @@ import { auth, database } from "../config/firebase";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { signOut } from "firebase/auth";
+import { View } from "react-native-web";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
@@ -93,10 +94,11 @@ export default function Chat() {
       // forceGetKeyboardHeight={true}
       alwaysShowSend
       scrollToBottom
+      
       // alignTop
       messagesContainerStyle={{
         backgroundColor: "#FFFFF0",
       }}
-    />
-  );
-}
+      />
+      );
+    }
