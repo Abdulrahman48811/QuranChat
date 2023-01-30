@@ -215,15 +215,15 @@ const Home = () => {
               fontSize: 15,
             }}
           >
-           <Ionicons name="alert-circle-outline" color="red" size={22}/> Note:
+            <Ionicons name="alert-circle-outline" color="red" size={22} /> Note:
           </Text>
 
           <Text style={{ marginLeft: 20, marginTop: 5, marginRight: 20 }}>
             Please look over the Rules & Regulations {"\n"}upon entering the
-            chat room. 
+            chat room.
           </Text>
           <TouchableOpacity
-          onPress={() => navigation.navigate("Chat")}
+            onPress={() => navigation.navigate("Chat")}
             style={{
               marginLeft: 70,
               marginRight: 30,
@@ -247,12 +247,10 @@ const Home = () => {
               }}
             >
               Chat Room {"  "}
-              <Ionicons name="chevron-forward-outline" size={20}/>
+              <Ionicons name="chevron-forward-outline" size={20} />
             </Text>
           </TouchableOpacity>
         </View>
-
-
 
         <View
           style={{
@@ -287,14 +285,16 @@ const Home = () => {
               fontSize: 15,
             }}
           >
-           <Ionicons name="information-circle-outline" color="red" size={22}/> Note:
+            <Ionicons name="information-circle-outline" color="red" size={22} />{" "}
+            Note:
           </Text>
 
           <Text style={{ marginLeft: 20, marginTop: 5, marginRight: 20 }}>
-            Review your privacy settings in order to{"\n"}make your desired changes, if needed.
+            Review your privacy settings in order to{"\n"}make your desired
+            changes, if needed.
           </Text>
           <TouchableOpacity
-          onPress={() => navigation.navigate("Settings")}
+            onPress={() => navigation.navigate("Settings")}
             style={{
               marginLeft: 80,
               marginRight: 30,
@@ -318,11 +318,10 @@ const Home = () => {
               }}
             >
               Settings{"  "}
-              <Ionicons name="chevron-forward-outline" size={20}/>
+              <Ionicons name="chevron-forward-outline" size={20} />
             </Text>
           </TouchableOpacity>
         </View>
-       
       </ScrollView>
       {/* <View style={styles.container}>
         <Image
