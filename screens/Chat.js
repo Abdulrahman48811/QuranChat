@@ -97,7 +97,7 @@ export default function Chat() {
       
       // alignTop
       messagesContainerStyle={{
-        backgroundColor: "#FFFFF0",
+        backgroundColor: "#F5F3F3",
       }}
       />
       );
