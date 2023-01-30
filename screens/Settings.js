@@ -9,8 +9,8 @@
 //   );
 // }
 
-// import React from "react";
-// import { View, Text, SafeAreaView, ScrollView, StyleSheet } from "react-native";
+import React from "react";
+import { View, Text, SafeAreaView, ScrollView, StyleSheet } from "react-native";
 
 const SECTIONS = [
   {
@@ -57,5 +57,33 @@ const SECTIONS = [
       { icon: 'mail', color: '#007afe', label: 'Contact Us', type: 'link'},
     ],
   },
-
+  {
+    header: 'Content',
+    icon: 'align-center',
+    items: [
+      { icon: 'save', color: '#32c759', label: 'Saved', type: 'link'},
+      { icon: 'download', color: '#fd2d54', label: 'Downloads', type: 'link'},
+    ],
+  },
 ];
+
+const PROFILE_PICTURE = '';
+
+export default function Settings() {
+  return(
+    <SafeAreaView style={{flex: 1}}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.profile}>
+          <Text style={styles.profileName}>Abdul Mohd</Text>
+          <Text style={styles.profileAddress}>48811 DD Street, RDTown, SD, 99112</Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 24,
+  }
+})
