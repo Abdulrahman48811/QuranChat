@@ -20,7 +20,7 @@ import {
   Image,
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-
+import FeatherIcon from 'react-native-vector-icons/Feather';
 
 const SECTIONS = [
   {
@@ -95,6 +95,10 @@ export default function Settings() {
                 source={{ uri: PROFILE_PICTURE }}
                 style={styles.profileAvatar}
               />
+
+              <View style={styles.profileAction}>
+                <FeatherIcon name='edit-3' size={15} color='#fff'/>
+              </View>
             </View>
           </TouchableOpacity>
           <Text style={styles.profileName}>Abdul Mohd</Text>
@@ -136,5 +140,16 @@ const styles = StyleSheet.create({
   },
   profileAvatarWrapper: {
     position: 'relative'
+  },
+  profileAction: {
+    width: 20,
+    height: 20,
+    borderRadius: 9999,
+    backgroundColor: "#007bff",
+    position: "absolute",
+    right: -3,
+    bottom: -10,
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 });
