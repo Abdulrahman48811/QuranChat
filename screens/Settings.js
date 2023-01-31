@@ -18,16 +18,17 @@ import {
   StyleSheet,
   Touchable,
   Image,
+  Switch,
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import FeatherIcon from 'react-native-vector-icons/Feather';
+import FeatherIcon from "react-native-vector-icons/Feather";
 
 const SECTIONS = [
   {
     header: "Prefrences",
     icon: "settings",
     items: [
-      { icons: "globe", color: "#fe9400", label: "Language", type: "link" },
+      { icon: "globe", color: "#fe9400", label: "Language", type: "link" },
       {
         id: "darkMode",
         icon: "moon",
@@ -77,9 +78,17 @@ const SECTIONS = [
   },
 ];
 
-const PROFILE_PICTURE = "https://cdn.sanity.io/images/vleyd5bv/production/271848966f956012881d89afa883dfc54d87d7bb-1186x1186.jpg";
+const PROFILE_PICTURE =
+  "https://i.pravatar.cc/300";
 
 export default function Settings() {
+  const [form, setForm] = React.useState({
+    darkMode: false,
+    wifi: true,
+    showCollaborators: true,
+    accessibilityMode: false,
+  });
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={styles.container}>
@@ -97,7 +106,7 @@ export default function Settings() {
               />
 
               <View style={styles.profileAction}>
-                <FeatherIcon name='edit-3' size={15} color='#fff'/>
+                <FeatherIcon name="edit-3" size={15} color="#fff" />
               </View>
             </View>
           </TouchableOpacity>
@@ -106,6 +115,47 @@ export default function Settings() {
             48811 DD Street, RDTown, SD, 99112
           </Text>
         </View>
+
+        {SECTIONS.map(({ header, items }) => (
+          <View style={styles.section} key={header}>
+            <Text style={styles.sectionHeader}>{header}</Text>
+
+            {items.map(({ id, label, type, icon, color }) => (
+              <TouchableOpacity
+                key={icon}
+                onPress={() => {
+                  //handle onPress
+                }}
+              >
+                <View style={styles.row}>
+                  <View style={[styles.rowIcon, { backgroundColor: color }]}>
+                    <FeatherIcon name={icon} color="#fff" size={18} />
+                  </View>
+                  <Text style={styles.rowLabel}>{label}</Text>
+
+                  <View style={{ flex: 1 }} />
+
+                  {type === "toggle" && (
+                    <Switch
+                      value={form[id]}
+                      onValueChange={(value) =>
+                        setForm({ ...form, [id]: value })
+                      }
+                    />
+                  )}
+
+                  {type === 'link' && (
+                    <FeatherIcon 
+                    name="chevron-right"
+                    color="#0c0c0c"
+                    size={22}
+                    />
+                  )}
+                </View>
+              </TouchableOpacity>
+            ))}
+          </View>
+        ))}
       </ScrollView>
     </SafeAreaView>
   );
@@ -139,7 +189,7 @@ const styles = StyleSheet.create({
     borderRadius: 9999,
   },
   profileAvatarWrapper: {
-    position: 'relative'
+    position: "relative",
   },
   profileAction: {
     width: 20,
@@ -147,9 +197,42 @@ const styles = StyleSheet.create({
     borderRadius: 9999,
     backgroundColor: "#007bff",
     position: "absolute",
-    right: -3,
-    bottom: -10,
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
+    right: -2.5,
+    bottom: -8,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  section: {
+    paddingHorizontal: 24,
+  },
+  sectionHeader: {
+    paddingVertical: 12,
+    fontSize: 12,
+    fontWeight: "600",
+    color: "#9e9e9e",
+    textTransform: "uppercase",
+    letterSpacing: 1.1,
+  },
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    height: 50,
+    backgroundColor: "lightgray",
+    borderRadius: 8,
+    marginBottom: 12,
+    paddingHorizontal: 12,
+  },
+  rowLabel: {
+    fontSize: 16,
+    color: "#0c0c0c",
+  },
+  rowIcon: {
+    width: 32,
+    height: 32,
+    borderRadius: 999,
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 12,
+  },
 });
