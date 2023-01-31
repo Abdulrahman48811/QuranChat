@@ -78,8 +78,7 @@ const SECTIONS = [
   },
 ];
 
-const PROFILE_PICTURE =
-  "https://i.pravatar.cc/300";
+const PROFILE_PICTURE = "https://i.pravatar.cc/300";
 
 export default function Settings() {
   const [form, setForm] = React.useState({
@@ -144,11 +143,11 @@ export default function Settings() {
                     />
                   )}
 
-                  {type === 'link' && (
-                    <FeatherIcon 
-                    name="chevron-right"
-                    color="#0c0c0c"
-                    size={22}
+                  {type === "link" && (
+                    <FeatherIcon
+                      name="chevron-right"
+                      color="#0c0c0c"
+                      size={22}
                     />
                   )}
                 </View>
