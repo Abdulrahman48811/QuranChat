@@ -22,7 +22,8 @@ import {
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import FeatherIcon from "react-native-vector-icons/Feather";
-
+import { signOut } from "firebase/auth";
+import { auth } from "../config/firebase";
 const SECTIONS = [
   {
     header: "Prefrences",
@@ -66,6 +67,7 @@ const SECTIONS = [
     items: [
       { icon: "flag", color: "#8e8d91", label: "Report Bug", type: "link" },
       { icon: "mail", color: "#007afe", label: "Contact Us", type: "link" },
+      { icon: "log-out", color: "purple", label: "Logout", type: "link" }
     ],
   },
   {
@@ -80,6 +82,9 @@ const SECTIONS = [
 
 const PROFILE_PICTURE = "https://i.pravatar.cc/300";
 
+const onSignOut = () => {
+  signOut(auth).catch((error) => console.log(error));
+};
 export default function Settings() {
   const [form, setForm] = React.useState({
     darkMode: false,
@@ -96,6 +101,7 @@ export default function Settings() {
             onPress={() => {
               //handle onPress
             }}
+            // onPress={onSignOut}
           >
             <View style={styles.profileAvatarWrapper}>
               <Image
@@ -109,7 +115,7 @@ export default function Settings() {
               </View>
             </View>
           </TouchableOpacity>
-          <Text style={styles.profileName}>Abdul Mohd</Text>
+          <Text style={styles.profileName}>{auth.currentUser?.email}</Text>
           <Text style={styles.profileAddress}>
             48811 DD Street, RDTown, SD, 99112
           </Text>
