@@ -137,7 +137,7 @@ const Home = () => {
       >
         <Image
           source={background}
-          style={{ width: 387.5, height: 150, marginRight: 30 }}
+          style={{ width:"100%", height: 150, alignSelf: "center"}}
         ></Image>
         <Text
           style={{
@@ -170,7 +170,7 @@ const Home = () => {
           }}
         >
           Pages
-          {"                                                   "}
+          {"                                         "}
           <Ionicons
             name="ellipsis-horizontal-outline"
             size={24}
