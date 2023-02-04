@@ -14,6 +14,13 @@ import { FontAwesome } from "@expo/vector-icons";
 import { AntDesign, Entypo } from "@expo/vector-icons";
 import { auth } from "../config/firebase";
 import Ionicons from "@expo/vector-icons/Ionicons";
+
+// const Walkthrough = {
+//   selfie: require("../assets/moonicon.png"),
+//   searching: require("../assets/mosquicon.png"),
+//   instashot: require("../assets/quran-icon.png"),
+// };
+
 const topLogo = require("../assets/logo.png");
 const fatiha = require("../assets/quranimg.jpeg");
 const background = require("../assets/background.png");
@@ -139,7 +146,7 @@ const Home = () => {
       >
         <Image
           source={background}
-          style={{ width:"100%", height: 150, alignSelf: "center"}}
+          style={{ width: "100%", height: 150, alignSelf: "center" }}
         ></Image>
         <Text
           style={{
