@@ -13,6 +13,7 @@ import { auth } from "./config/firebase";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import WalkthroughScreen from "./src/screens/WalkthroughScreen";
 const Stack = createStackNavigator();
 const AuthenticatedUserContext = createContext({});
 const Tab = createBottomTabNavigator();
@@ -64,6 +65,7 @@ function ChatStack() {
         <Tab.Screen name={homeName} component={Home} />
         <Tab.Screen name="Chat" component={Chat} />
         <Tab.Screen name={settingsName} component={Settings} />
+        <Tab.Screen name="Walkthrough" component={WalkthroughScreen} />
       </Tab.Navigator>
       {/* /* </Stack.Navigator> */}
     </NavigationContainer>
