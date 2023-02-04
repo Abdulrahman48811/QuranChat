@@ -69,10 +69,12 @@ const Home = () => {
         <Image
           source={bismillah}
           style={{
-            width: 400,
+            width: "100%",
             height: 100,
             marginTop: -5,
             marginBottom: -5,
+            marginRight: 20,
+            marginLeft: 20,
           }}
         />
       </View>
@@ -225,8 +227,7 @@ const Home = () => {
           <TouchableOpacity
             onPress={() => navigation.navigate("Chat")}
             style={{
-              marginLeft: 70,
-              marginRight: 30,
+              alignSelf: "center",
               marginTop: 15,
               borderRadius: 10,
               backgroundColor: "#4B4B4B",
@@ -296,8 +297,7 @@ const Home = () => {
           <TouchableOpacity
             onPress={() => navigation.navigate("Settings")}
             style={{
-              marginLeft: 80,
-              marginRight: 30,
+              alignSelf: "center",
               marginTop: 15,
               borderRadius: 10,
               backgroundColor: "#4B4B4B",
@@ -398,7 +398,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   goto: {
-    marginLeft: 70,
+    alignSelf: "center",
     marginTop: 15,
     borderRadius: 10,
     backgroundColor: "#4B4B4B",
