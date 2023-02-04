@@ -1,0 +1,109 @@
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useLayoutEffect } from "react";
+import Home from "../../screens/Home";
+import Swiper from "react-native-swiper";
+import Images from "../images";
+import { useNavigation } from "@react-navigation/native";
+
+export default function WalkthroughScreen() {
+  const navigation = useNavigation();
+  const walkthroughList = [
+    { id: 1, title: "ONE", image: Images.selfie, text: "haha" },
+    { id: 2, title: "TWO", image: Images.searching },
+    { id: 3, title: "THREE", image: Images.instashot },
+  ];
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerStyle: {
+        backgroundColor: "#F5F3F3",
+      },
+      headerRight: () => <TouchableOpacity style={{}}></TouchableOpacity>,
+    });
+  }, [navigation]);
+  return (
+    <View style={{ flex: 1, backgroundColor: "#FFF" }}>
+      <Swiper
+        paginationStyle={{
+          position: "absolute",
+          bottom: "20%",
+        }}
+        activeDotColor="#da9100"
+        activeDotStyle={{ width: 20, height: 8 }}
+      >
+        {walkthroughList.map((i) => {
+          return (
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100%",
+              }}
+            >
+              <Text style={styles.titleStyle}>{i.title}</Text>
+              <Text style={styles.textStyle}>{i.text}</Text>
+              <Image style={styles.imageContainer} source={i.image} />
+            </View>
+          );
+        })}
+      </Swiper>
+      <View
+        style={{
+          position: "absolute",
+          bottom: "5%",
+          left: 0,
+          right: 0,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <TouchableOpacity style={styles.buttonStyle}>
+          <Text style={styles.textStartedStyle}>Lets go</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={{ color: "gray", fontWeight: "bold" }}>Skip</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  titleStyle: {
+    fontSize: 22,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginTop: -100,
+  },
+  textStyle: {
+    fontSize: 16,
+    marginTop: 10,
+    marginBottom: 100,
+  },
+  imageContainer: {
+    height: "50%",
+    width: "80%",
+    resizeMode: "contain",
+    marginHorizontal: 15,
+  },
+  buttonStyle: {
+    backgroundColor: "#da9100",
+    paddingHorizontal: 90,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 15,
+    borderRadius: 15,
+    marginBottom: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.36,
+    shadowRadius: 6.68,
+    
+    elevation: 11,
+  },
+  textStartedStyle: {
+    fontWeight: "bold",
+  },
+});
