@@ -14,12 +14,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import { AntDesign, Entypo } from "@expo/vector-icons";
 import { auth } from "../config/firebase";
 import Ionicons from "@expo/vector-icons/Ionicons";
-
-// const Walkthrough = {
-//   selfie: require("../assets/moonicon.png"),
-//   searching: require("../assets/mosquicon.png"),
-//   instashot: require("../assets/quran-icon.png"),
-// };
+// import WalkthroughScreen from "../src/screens/WalkthroughScreen";
 
 const topLogo = require("../assets/logo.png");
 const fatiha = require("../assets/quranimg.jpeg");
@@ -162,7 +157,9 @@ const Home = () => {
           Looking for a group of people to discuss your thoughts & questions
           with? Quran Chat allows you to learn something new everyday.
         </Text>
-        <TouchableOpacity style={styles.goto}>
+        <TouchableOpacity 
+        onPress={() => navigation.navigate('WalkthroughScreen')}
+        style={styles.goto}>
           <Text style={styles.gotoText}>
             Rules & Regulations{/* add fatiha beginning */}
           </Text>
