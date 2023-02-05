@@ -56,11 +56,19 @@ export default function WalkthroughScreen() {
           alignItems: "center",
         }}
       >
-        <TouchableOpacity style={styles.buttonStyle}>
-          <Text style={styles.textStartedStyle}>Lets go</Text>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          onPress={() => navigation.navigate("Home")}
+        >
+          <Text style={styles.textStartedStyle}>Got It!</Text>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text style={{ color: "gray", fontWeight: "bold" }}>Skip</Text>
+          <Text
+            style={{ color: "gray", fontWeight: "bold" }}
+            onPress={() => navigation.navigate("Chat")}
+          >
+            Join Chat
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -100,7 +108,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.36,
     shadowRadius: 6.68,
-    
+
     elevation: 11,
   },
   textStartedStyle: {
