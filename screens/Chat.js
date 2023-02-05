@@ -51,17 +51,17 @@ export default function Chat() {
   }, [navigation]);
 
   useLayoutEffect(() => {
-    const collectionRef = collection(database, 'chats');
+    const collectionRef = collection(database, "chats");
     const q = query(collectionRef, orderBy("createdAt", "desc"));
 
-    const unsubscribe = onSnapshot(q, snapshot => {
+    const unsubscribe = onSnapshot(q, (snapshot) => {
       // console.log('snapshot');
       setMessages(
-        snapshot.docs.map(doc => ({
+        snapshot.docs.map((doc) => ({
           _id: doc.id,
           createdAt: doc.data().createdAt.toDate(),
           text: doc.data().text,
-          user: doc.data().user
+          user: doc.data().user,
         }))
       );
     });
@@ -69,21 +69,20 @@ export default function Chat() {
   }, []);
 
   const onSend = useCallback((messages = []) => {
-    setMessages(previousMessages =>
+    setMessages((previousMessages) =>
       GiftedChat.append(previousMessages, messages)
     );
 
     const { _id, createdAt, text, user } = messages[0];
-    addDoc(collection(database, 'chats'), {
+    addDoc(collection(database, "chats"), {
       _id,
       createdAt,
       text,
       user,
     });
   }, []);
-  
 
-  return (  
+  return (
     <GiftedChat
       messages={messages}
       onSend={(messages) => onSend(messages)}
@@ -94,11 +93,10 @@ export default function Chat() {
       // forceGetKeyboardHeight={true}
       alwaysShowSend
       scrollToBottom
-      
       // alignTop
       messagesContainerStyle={{
         backgroundColor: "#F5F3F3",
       }}
-      />
-      );
-    }
+    />
+  );
+}
