@@ -67,7 +67,7 @@ const SECTIONS = [
     items: [
       { icon: "flag", color: "#8e8d91", label: "Report Bug", type: "link" },
       { icon: "mail", color: "#007afe", label: "Contact Us", type: "link" },
-      { icon: "log-out", color: "purple", label: "Logout", type: "link" }
+      { icon: "log-out", color: "purple", label: "Logout", type: "link" },
     ],
   },
   {
