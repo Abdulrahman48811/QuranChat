@@ -63,9 +63,17 @@ function ChatStack() {
       >
         {/* <Stack.Navigator defaultScreenOptions={Home} > */}
         <Tab.Screen name={homeName} component={Home} />
+        <Tab.Screen
+          name="Walkthrough"
+          component={WalkthroughScreen}
+          options={{
+            tabBarStyle: { display: "none" },
+            headerShown: false,
+            tabBarItemStyle: { display: "none" },
+          }}
+        />
         <Tab.Screen name="Chat" component={Chat} />
         <Tab.Screen name={settingsName} component={Settings} />
-        <Tab.Screen name="Walkthrough" component={WalkthroughScreen} />
       </Tab.Navigator>
       {/* /* </Stack.Navigator> */}
     </NavigationContainer>
