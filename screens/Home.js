@@ -157,9 +157,10 @@ const Home = () => {
           Looking for a group of people to discuss your thoughts & questions
           with? Quran Chat allows you to learn something new everyday.
         </Text>
-        <TouchableOpacity 
-        onPress={() => navigation.navigate('WalkthroughScreen')}
-        style={styles.goto}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Walkthrough")}
+          style={styles.goto}
+        >
           <Text style={styles.gotoText}>
             Rules & Regulations{/* add fatiha beginning */}
           </Text>
