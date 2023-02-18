@@ -8,7 +8,12 @@ import { useNavigation } from "@react-navigation/native";
 export default function WalkthroughScreen() {
   const navigation = useNavigation();
   const walkthroughList = [
-    { id: 1, title: "Chat Room Rules", image: Images.selfie, text: "No personal attacks or harrassment<br>" },
+    {
+      id: 1,
+      title: "Chat Room Rules",
+      image: Images.selfie,
+      text: "○   No personal attacks or harrassment \n○   No personal business & promotions \n○   No spamming and no trolling \n○   No bad language (cuss/swear words)",
+    },
     { id: 2, title: "TWO", image: Images.searching },
     { id: 3, title: "THREE", image: Images.instashot },
   ];
@@ -77,15 +82,20 @@ export default function WalkthroughScreen() {
 
 const styles = StyleSheet.create({
   titleStyle: {
-    fontSize: 22,
+    fontSize: 26,
     fontWeight: "bold",
     textAlign: "center",
-    marginTop: -100,
+    // marginTop: 50,
+    marginBottom: 40,
   },
   textStyle: {
-    fontSize: 16,
-    marginTop: 10,
-    marginBottom: 100,
+    fontSize: 18,
+    // marginTop: 10,
+    // textAlign: "center",
+    // marginBottom: 30,
+    marginRight: 20,
+    // marginLeft: 10,
+    lineHeight: 39,
   },
   imageContainer: {
     height: "50%",
