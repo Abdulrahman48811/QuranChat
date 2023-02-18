@@ -8,7 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 export default function WalkthroughScreen() {
   const navigation = useNavigation();
   const walkthroughList = [
-    { id: 1, title: "ONE", image: Images.selfie, text: "haha" },
+    { id: 1, title: "Chat Room Rules", image: Images.selfie, text: "No personal attacks or harrassment<br>" },
     { id: 2, title: "TWO", image: Images.searching },
     { id: 3, title: "THREE", image: Images.instashot },
   ];
