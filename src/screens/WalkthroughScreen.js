@@ -15,7 +15,7 @@ export default function WalkthroughScreen() {
       text: "○   No personal attacks or harrassment \n○   No personal business & promotions \n○   No spamming and no trolling \n○   No bad language (cuss/swear words)",
     },
     { id: 2, title: "App Regulations", image: Images.searching },
-    { id: 3, title: "THREE", image: Images.instashot },
+    { id: 3, title: "Enjoy The App", image: Images.instashot },
   ];
   useLayoutEffect(() => {
     navigation.setOptions({
